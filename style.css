@@ -1,0 +1,180 @@
+/* ---------- Theme (CSS custom properties) ---------- */
+:root {
+  --color-brand: #0f766e;
+  --color-accent: #f59e0b;
+  --color-surface: #f4f6f8;
+  --color-card: #ffffff;
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-on-brand: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  /* CSS Grid: overall page layout */
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+.sidebar { grid-area: sidebar; }
+.header  { grid-area: header; }
+.cards   { grid-area: main; }
+
+/* ---------- Sidebar (Flexbox) ---------- */
+.sidebar {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  padding: 1.5rem 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--color-on-brand);
+  text-decoration: none;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Header (Flexbox) ---------- */
+.header {
+
+    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.user {
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Cards: Grid container ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  align-content: start;
+}
+
+/* ---------- Card content (Flexbox) ---------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--color-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-top: 4px solid var(--color-accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card-label {
+  font-weight: 600;
+}
+
+.card-amount {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-brand);
+}
+
+.card-note {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ---------- Micro-interactions (200ms, under the 250ms limit) ---------- */
+.card {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card:focus {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* ---------- Responsive: single column below 768px ---------- */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "sidebar"
+      "header"
+      "main";
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------- Dark theme (stretch goal): variables only ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-brand: #14b8a6;
+    --color-accent: #fbbf24;
+    --color-surface: #111827;
+    --color-card: #1f2937;
+    --color-text: #f3f4f6;
+    --color-text-secondary: #9ca3af;
+    --color-border: #374151;
+    --color-on-brand: #0b1220;
+  }
+}
