@@ -25,7 +25,37 @@ A responsive budget dashboard that shows monthly spending by category (Food, Tra
 
 ## Built with
 
-HTML and CSS (Flexbox, Grid, CSS variables, media queries)
+HTML, CSS (Flexbox, Grid, CSS variables, media queries) and JavaScript
+
+## What SpendWise does
+
+SpendWise is a budgeting dashboard. The JavaScript lets users enter a
+budget and an expense and see their remaining balance.
+
+## JavaScript concepts implemented
+
+Variables, data types, prompts for input, arithmetic, conditionals,
+functions and console output.
+
+## How variables are used
+
+I used `let` for values that change (budget, expense, balance) and
+`const` for the fixed currency, "KES".
+
+## How user input is collected
+
+`prompt()` asks for the name, monthly budget, expense name and amount.
+`Number()` converts the budget and amount from text to numbers.
+
+## How calculations are performed
+
+The remaining balance is the monthly budget minus the expense, done by
+`calculateRemainingBalance()`.
+
+## How functions help organize the code
+
+`calculateRemainingBalance()` and `checkBudgetStatus()` keep the logic
+reusable and separate from the input and output.
 
 ## Author
 
