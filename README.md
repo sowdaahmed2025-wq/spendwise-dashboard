@@ -1,106 +1,53 @@
 # SpendWise Dashboard
 
-A responsive budget dashboard that shows monthly spending by category (Food, Transport, Rent, Entertainment, Savings, Utilities).
+## Project Description
 
-## Features
+SpendWise is a responsive budget dashboard that helps users track their monthly spending. It shows spending cards for categories such as Food, Transport, Rent, Entertainment, Savings and Utilities. It also includes a Budget Tracker where users can set a monthly budget, add and delete expenses, and see their total spent, remaining balance and a status message. The layout adapts to desktop and mobile screens.
 
-- Sidebar navigation: Overview, Expenses, Budgets, Reports, Settings
-- Header built with Flexbox
-- Budget cards in a grid: 3 columns on desktop, 1 column on mobile
-- Mobile layout below 768px (sidebar on top, cards stacked)
-- Dark theme that follows the device setting (prefers-color-scheme: dark)
+## Technologies Used
 
-## Screenshots
+- HTML5
+- CSS3 (responsive layout)
+- JavaScript (arrays, loops, DOM manipulation and events)
+- Google Fonts (Poppins)
+- Git and GitHub (version control)
+- Netlify (hosting and continuous deployment)
+- Visual Studio Code
 
-### Desktop
-![Desktop view](desktop.png)
+## GitHub Repository Information
 
-### Mobile (400px)
-![Mobile view](mobile.png)
+- **Repository name:** spendwise-dashboard
+- **Visibility:** Public
+- **Repository link:** https://github.com/sowdaahmed2025-wq/spendwise-dashboard
+- **Author:** Sowda Ahmed Abdi
 
+## Live Netlify Website URL
 
+**https://spendwise-sowda.netlify.app**
 
-## How to run
+## Deployment Process Summary
 
-1. Download or clone this folder.
-2. Open index.html in your browser.
+1. Checked that `index.html` is at the top level of the project and that all links to CSS, JavaScript and images use relative paths with matching file names.
+2. Pushed the project to a public GitHub repository.
+3. Signed in to Netlify with GitHub, chose **Import from Git**, and selected the `spendwise-dashboard` repository.
+4. Netlify detected a plain HTML project with no build command, and deployed from the `main` branch.
+5. Changed the project visibility from Private to Public so anyone can open the site.
+6. Renamed the site from the default `spendwise-dashboard-g7ss` to `spendwise-sowda`.
+7. Tested continuous deployment by changing the heading to "Monthly Overview (Live on Netlify!)", committing and pushing to GitHub. Netlify rebuilt the site automatically and the change appeared live without any manual upload.
+8. Tested the live site: all styles, scripts and images load, the Budget Tracker works (set budget, add expense, delete, clear all), the layout is responsive, and the browser console shows no errors.
 
-## Built with
+## Challenges Encountered During Deployment
 
-HTML, CSS (Flexbox, Grid, CSS variables, media queries) and JavaScript
+- **Private site by default:** after the first deploy, the site showed "This site is private" to visitors. I fixed it by changing "Who can see it" to **Public** in the project's Share settings and confirmed it in an Incognito window.
+- **Finding the right settings:** Netlify's new interface looks different from older guides, so it took some exploring to find the Share, Manage and Rename options.
+- **GitHub authorization:** connecting Netlify to GitHub required installing the Netlify app and confirming access with GitHub Mobile.
+- **Stale browser tabs:** after renaming the site, an old tab still showed the previous address and an old copy of the page. I used a hard refresh (Ctrl + F5) and tested only on the new address.
+- **Terminal typo:** a mistyped Git command caused a command-not-found error. I cleared the line and re-ran it correctly.
 
-## What SpendWise does
+## Lessons Learned
 
-SpendWise is a budgeting dashboard. The JavaScript lets users enter a
-budget and an expense and see their remaining balance.
-
-## JavaScript concepts implemented
-
-Variables, data types, prompts for input, arithmetic, conditionals,
-functions and console output.
-
-## How variables are used
-
-I used `let` for values that change (budget, expense, balance) and
-`const` for the fixed currency, "KES".
-
-## How user input is collected
-
-Users type into HTML forms and inputs instead of `prompt()`. The values are
-read with `.value` and converted with `Number()`.
-
-## How calculations are performed
-
-The remaining balance is the budget minus the total of all expenses, calculated
-by `calculateBalance()`. The total is added up with a `for` loop in
-`calculateTotal()`.
-
-## How functions help organize the code
-
-Functions such as `calculateTotal()`, `calculateBalance()`, `getStatus()`,
-`renderExpenses()` and `updateDashboard()` keep the logic reusable and
-separate from the page events.
-
-
-
-## What improved this week
-
-SpendWise changed from a console-only script into an interactive dashboard.
-Users can set a budget, add and delete expenses, and see the results on the page.
-
-## How conditionals are used
-
-`if / else if / else` checks what percentage of the budget has been used and
-shows a "within budget", "warning" or "over budget" message. Conditionals also
-check that the form input is valid.
-
-## How arrays are used to store data
-
-All expenses are stored in an `expenses` array. Each expense is an object with
-a name, an amount and a category.
-
-## How loops are used
-
-A `for` loop adds up the total spending. Another `for` loop builds the expense
-list shown on the page.
-
-## How the DOM is updated
-
-I select elements with `getElementById` and change them with `textContent`,
-`createElement` and `appendChild`, so the page updates without reloading.
-
-## How user interactions are handled through events
-
-`submit` events on the forms add the budget and the expenses. `click` events on
-the Delete and Clear All buttons remove data.
-
-## Challenges and how I solved them
-
-At first my `script.js` was created as a folder instead of a file, so the
-page did not run my code. I deleted the folder and created a real file.
-I also got `NaN` when I typed text into a number prompt, which I fixed by
-using number inputs and validating the values.
-
-## Author
-
-Sowda Ahmed Abdi
+- Relative paths and exact, case-sensitive file names are important for deployment.
+- Connecting GitHub to Netlify makes deployment automatic: every push to `main` updates the live site.
+- Always test the live site in a private (Incognito) window to see what other visitors see.
+- Commit and push in small steps, and read terminal messages carefully.
+- A hard refresh helps when the browser shows an old cached version of a site.
